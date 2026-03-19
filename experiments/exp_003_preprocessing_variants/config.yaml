@@ -1,0 +1,24 @@
+experiment_name: exp_003_preprocessing_variants
+model:
+  type: hybrid_cnn_lstm
+  input_channels: 1
+  cnn_filters: [64,128]
+  lstm_hidden: 128
+  lstm_layers: 2
+  num_classes: 5
+  dropout: 0.3
+  bidirectional: true
+training:
+  batch_size: 64
+  epochs: 50
+  lr: 0.001
+  weight_decay: 1e-5
+dataset:
+  name: mitbih
+  path: data/mitbih
+preprocessing_variants:
+  - bandpass: [0.5,50]
+  - bandpass: [1,40]
+  - bandpass: [0.5,100]
+  window_size: 512
+  overlap: 0.5
