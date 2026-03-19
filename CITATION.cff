@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 title: "Multimodal Biomedical Signal Classification using Hybrid CNN–LSTM with Adaptive Normalization, Attention, and Explainable AI (LRP)"
 authors:
-  - family-names: "Your Last Name"
-    given-names: "Your First Name"
+  - family-names: "Zafeiratos"
+    given-names: "Giorgos"
     orcid: "https://orcid.org/0000-0000-0000-0000"
 date-released: 2026-03-20
 version: "1.0.0"
