@@ -1,5 +1,3 @@
-# bachelor-thesis
-
 # Multimodal Biomedical Signal Classification using Hybrid CNN–LSTM with Adaptive Normalization, Attention, and Explainable AI (LRP)
 
 ## Abstract
