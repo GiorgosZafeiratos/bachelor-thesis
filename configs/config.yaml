@@ -1,0 +1,32 @@
+training:
+  seed: 42
+  epochs: 120
+  batch_size: 64
+  optimizer:
+    type: AdamW
+    lr: 1e-3
+    weight_decay: 1e-4
+  scheduler:
+    type: CosineAnnealingLR
+    T_max: 50
+  loss_function: CrossEntropyLoss
+  early_stopping:
+    patience: 15
+    delta: 1e-4
+  device: cuda
+
+logging:
+  log_dir: logs/
+  tensorboard: true
+  wandb: true
+  project_name: "biomedical_signal_classification"
+
+checkpoint:
+  save_dir: checkpoints/
+  save_best_only: true
+  monitor: val_loss
+
+misc:
+  seed_everything: true
+  deterministic: true
+  mixed_precision: true
