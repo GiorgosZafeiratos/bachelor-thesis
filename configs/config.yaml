@@ -19,7 +19,7 @@ logging:
   log_dir: logs/
   tensorboard: true
   wandb: true
-  project_name: "biomedical_signal_classification"
+  project_name: "bachelor_thesis"
 
 checkpoint:
   save_dir: checkpoints/
