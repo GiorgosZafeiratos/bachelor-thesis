@@ -1,0 +1,34 @@
+datasets:
+  EEG:
+    name: PhysioNet EEG Motor Movement/Imagery
+    path: data/EEG
+    channels: 32
+    sampling_rate: 256
+    bandpass: [1, 40]
+    window_size: 512
+    overlap: 0.5
+    augmentation:
+      noise: 0.01
+      amplitude_scaling: 0.1
+  ECG:
+    name: MIT-BIH Arrhythmia
+    path: data/ECG
+    channels: 1
+    sampling_rate: 360
+    bandpass: [0.5, 100]
+    window_size: 512
+    overlap: 0.5
+    augmentation:
+      noise: 0.01
+      amplitude_scaling: 0.05
+  EMG:
+    name: NinaPro DB5
+    path: data/EMG
+    channels: 8
+    sampling_rate: 200
+    bandpass: [20, 450]
+    window_size: 400
+    overlap: 0.5
+    augmentation:
+      noise: 0.02
+      amplitude_scaling: 0.1
