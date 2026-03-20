@@ -50,4 +50,4 @@ pip install -r requirements.txt
 
 # Or using conda
 conda env create -f environment.yml
-conda activate biomedical-classifier
+conda activate bachelor-thesis
