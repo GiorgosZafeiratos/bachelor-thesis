@@ -4,10 +4,9 @@ title: "Multimodal Biomedical Signal Classification using Hybrid CNN–LSTM with
 authors:
   - family-names: "Zafeiratos"
     given-names: "Giorgos"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+
 date-released: 2026-03-20
 version: "1.0.0"
-doi: "10.5281/zenodo.0000000"
 license: "MIT"
 url: "https://github.com/giorgoszafeiratos/bachelor-thesis"
 keywords:
@@ -15,7 +14,7 @@ keywords:
   - LSTM
   - EEG
   - ECG
-  - EMG
+  - PPG
   - Biomedical Signals
   - Explainable AI
   - LRP
