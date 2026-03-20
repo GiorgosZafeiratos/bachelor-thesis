@@ -36,7 +36,7 @@ The framework is evaluated on the following publicly available biomedical datase
 
 - **EEG**: PhysioNet EEG Motor Movement/Imagery Dataset  
 - **ECG**: MIT-BIH Arrhythmia Dataset  
-- **EMG**: NinaPro DB5 Dataset  
+- **PPG**: PPG-DaLiA Dataset  
 
 Each dataset undergoes preprocessing including filtering, normalization, segmentation, and data augmentation.
 
