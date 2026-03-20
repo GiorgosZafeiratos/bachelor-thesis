@@ -21,9 +21,9 @@ datasets:
     augmentation:
       noise: 0.01
       amplitude_scaling: 0.05
-  EMG:
-    name: NinaPro DB5
-    path: data/EMG
+  PPG:
+    name: PPG-DaLiA
+    path: data/PPG
     channels: 8
     sampling_rate: 200
     bandpass: [20, 450]
