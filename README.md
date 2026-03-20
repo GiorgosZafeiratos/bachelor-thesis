@@ -1,7 +1,7 @@
 # Multimodal Biomedical Signal Classification using Hybrid CNN–LSTM with Adaptive Normalization, Attention, and Explainable AI (LRP)
 
 ## Abstract
-Biomedical signal analysis is crucial in healthcare for monitoring physiological states and diagnosing pathological conditions. This project focuses on multimodal biomedical signal classification leveraging electroencephalography (EEG), electrocardiography (ECG), and electromyography (EMG) data. We propose a hybrid CNN–LSTM architecture enhanced with adaptive normalization, attention mechanisms, and explainable AI (XAI) using Layer-wise Relevance Propagation (LRP).
+Biomedical signal analysis is crucial in healthcare for monitoring physiological states and diagnosing pathological conditions. This project focuses on multimodal biomedical signal classification leveraging electroencephalography (EEG), electrocardiography (ECG), and photoplethysmography (PPG) data. We propose a hybrid CNN–LSTM architecture enhanced with adaptive normalization, attention mechanisms, and explainable AI (XAI) using Layer-wise Relevance Propagation (LRP).
 
 ---
 
