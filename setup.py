@@ -7,14 +7,14 @@ here = Path(__file__).parent.resolve()
 long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name="biomedical_classifier",
+    name="bachelor-thesis",
     version="1.0.0",
-    author="Your Name",
-    author_email="your.email@domain.com",
+    author="Giorgos Zafeiratos",
+    author_email="gzafeiratos22b@amcstudent.edu.gr",
     description="Multimodal Biomedical Signal Classification using Hybrid CNN-LSTM with Adaptive Normalization, Attention, and LRP",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/biomedical-classifier",
+    url="https://github.com/GiorgosZafeiratos/bachelor-thesis",
     packages=find_packages(exclude=["tests", "docs"]),
     python_requires=">=3.11",
     install_requires=[
