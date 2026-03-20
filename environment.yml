@@ -1,4 +1,4 @@
-name: biomedical-classifier
+name: bachelor-thesis
 channels:
   - defaults
   - conda-forge
