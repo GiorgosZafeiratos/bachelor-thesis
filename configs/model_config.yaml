@@ -3,7 +3,7 @@ model:
   input_channels:
     EEG: 32
     ECG: 1
-    EMG: 8
+    PPG: 8
   cnn:
     conv_blocks: 3
     kernel_size: 3
