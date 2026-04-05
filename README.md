@@ -6,7 +6,7 @@ Biomedical signal analysis is crucial in healthcare for monitoring physiological
 ---
 
 ## Architecture Overview
-Our framework integrates:
+The framework integrates:
 
 1. **CNN Feature Extractor**:  
    - 3 convolutional blocks with batch normalization and adaptive normalization layers.  
