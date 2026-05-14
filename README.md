@@ -108,8 +108,8 @@ This makes normalisation *input-conditioned* rather than globally fixed, adaptin
 ### 1 · Install
 
 ```bash
-git clone https://github.com/<GiorgosZafeiratos>/thesis-multimodal-biosignal.git
-cd thesis-multimodal-biosignal
+git clone https://github.com/GiorgosZafeiratos/bachelor-thesis.git
+cd bachelor-thesis
 pip install -r requirements.txt
 ```
 
@@ -183,7 +183,7 @@ After a full run, `outputs/` contains:
 ```
 outputs/
 ├── hybrid/
-│   ├── final_comparison.csv          CNN / LSTM / Hybrid — all modalities
+│   ├── final_comparison.csv          CNN, LSTM, Hybrid — all modalities
 │   ├── final_comparison.png
 │   └── {ecg,eeg,ppg}/
 │       ├── best_hybrid.pt            Best checkpoint
@@ -207,7 +207,7 @@ outputs/
 │       └── violin_macro_f1.png
 ├── xai/
 │   └── {ecg,eeg,ppg}/
-│       ├── *_class_profiles.png      Grad-CAM / IG / LRP per class
+│       ├── *_class_profiles.png      Grad-CAM, IG, LRP per class
 │       └── *_sample*.png             Individual sample attributions
 ├── late_fusion/
 │   ├── modality_weights.json
@@ -215,7 +215,7 @@ outputs/
 ├── deployment/
 │   └── {ecg,eeg,ppg}/
 │       ├── deployment_report.json
-│       ├── deployment_comparison.csv  Original / INT8 / Pruned
+│       ├── deployment_comparison.csv  Original, INT8, Pruned
 │       └── latency_profile.png
 └── run.log                            Full training log
 ```
@@ -260,7 +260,7 @@ Both strategies are implemented, and the thesis explicitly states that sample-le
   title   = {Multimodal Biomedical Signal Classification Using a Hybrid
              CNN--LSTM Architecture with Adaptive Normalization and
              Explainable AI},
-  author  = {Author, Giorgos Zafeiratos},
+  author  = {Author: Giorgos Zafeiratos},
   year    = {2025-2026},
   school  = {University of East London},
   type    = {Bachelor's Thesis},
@@ -271,7 +271,7 @@ Both strategies are implemented, and the thesis explicitly states that sample-le
 
 ## Licence
 
-This code is released for academic use. The three datasets are subject to their own licences:
+This code is released under the MIT licence, for academic use only. The three datasets are subject to their own licences:
 - MIT-BIH: [PhysioNet Credentialed Health Data License 1.5.0](https://physionet.org/content/mitdb/1.0.0/)
 - EEG Motor Movement: [PhysioNet Credentialed Health Data License 1.5.0](https://physionet.org/content/eegmmidb/1.0.0/)
 - PPG-DaLiA: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/495/ppg+dalia)
