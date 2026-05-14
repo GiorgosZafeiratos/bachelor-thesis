@@ -31,12 +31,12 @@ A full **explainability module** (Grad-CAM, Integrated Gradients, LRP ε-rule) p
 ├── requirements.txt               Pinned dependencies
 │
 ├── src/                           Source package
-│   ├── preprocessing_pipeline.py  ECG / EEG / PPG loading, filtering, HDF5 export
+│   ├── preprocessing_pipeline.py  ECG, EEG, PPG loading, filtering, HDF5 export
 │   ├── baseline_models.py         CNN-only and LSTM-only baselines
 │   ├── hybrid_model.py            Multi-scale CNN–LSTM with LearnableNorm + gated fusion
 │   ├── multimodal_fusion.py       Late-fusion ensemble + MultimodalDataset
 │   ├── ablation_framework.py      10-config ablation matrix + AblationRunner
-│   ├── xai_and_pipeline.py        Grad-CAM / IG / LRP + UnifiedRunConfig + end_to_end_run
+│   ├── xai_and_pipeline.py        Grad-CAM, IG, LRP + UnifiedRunConfig + end_to_end_run
 │   └── evaluation_suite.py        Subject-wise splits, Wilcoxon tests, latency profiling
 │
 ├── notebooks/
@@ -69,20 +69,20 @@ A full **explainability module** (Grad-CAM, Integrated Gradients, LRP ε-rule) p
 Input (B, C, T)
     │
     ├─── Multi-Scale CNN Encoder ──────────────────────────────────────────┐
-    │     ├─ Branch k=3   [LearnableNorm → Conv → ResBlocks(SE) → Pool]   │
-    │     ├─ Branch k=7   [LearnableNorm → Conv → ResBlocks(SE) → Pool]   │
-    │     ├─ Branch k=15  [LearnableNorm → Conv → ResBlocks(SE) → Pool]   │
-    │     └─ Branch k=31  [LearnableNorm → Conv → ResBlocks(SE) → Pool]   │
+    │     ├─ Branch k=3   [LearnableNorm → Conv → ResBlocks(SE) → Pool]    │
+    │     ├─ Branch k=7   [LearnableNorm → Conv → ResBlocks(SE) → Pool]    │
+    │     ├─ Branch k=15  [LearnableNorm → Conv → ResBlocks(SE) → Pool]    │
+    │     └─ Branch k=31  [LearnableNorm → Conv → ResBlocks(SE) → Pool]    │
     │           ↓ concat → (B, 128, 64)                                    │
-    │           │                                                           │
-    │           ├──→ GlobalAvgPool → f_cnn (B, 128) ──────────────────────┤
+    │           │                                                          │
+    │           ├──→ GlobalAvgPool → f_cnn (B, 128) ───────────────────────┤
     │           └──→ permute (B, 64, 128)                                  │
-    │                     ↓                                                 │
+    │                     ↓                                                │
     ├─── BiLSTM Encoder ───────────────────────────────────────────────────┤
     │     ├─ BiLSTM (hidden=192, layers=2)                                 │
-    │     └─ Multi-head temporal attention (heads=4)                        │
+    │     └─ Multi-head temporal attention (heads=4)                       │
     │           ↓ → f_lstm (B, 384)                                        │
-    │                                                                       │
+    │                                                                      │
     ├─── Gated Fusion ─────────────────────────────────────────────────────┘
     │     g = σ(W · [f_cnn ; f_lstm])
     │     f = g ⊙ proj(f_cnn) + (1−g) ⊙ proj(f_lstm)
@@ -95,7 +95,7 @@ Input (B, C, T)
 **LearnableNorm** (the core novel component):
 ```
 μ, σ = per-channel mean and std of the current window
-γ, β = MLP(concat[μ, σ])          # hyper-network, 2-layer
+γ, β = MLP(concat[μ, σ])     # hyper-network, 2-layer
 x_norm = (x − μ) / σ
 output  = γ · x_norm + β
 ```
@@ -108,7 +108,7 @@ This makes normalisation *input-conditioned* rather than globally fixed, adaptin
 ### 1 · Install
 
 ```bash
-git clone https://github.com/<your-username>/thesis-multimodal-biosignal.git
+git clone https://github.com/<GiorgosZafeiratos>/thesis-multimodal-biosignal.git
 cd thesis-multimodal-biosignal
 pip install -r requirements.txt
 ```
