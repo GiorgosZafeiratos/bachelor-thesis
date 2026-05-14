@@ -57,11 +57,6 @@ class NormalizationConfig:
     """
     Separates preprocessing-level and model-level normalization.
 
-    This is the core fix for GAP #3. The rule is:
-        preprocessing_norm XOR model_norm
-    i.e. you should not apply both. This config enforces that constraint
-    and makes every experiment's normalization strategy explicit.
-
     preprocessing_norm : "zscore" | "minmax" | "robust" | "none"
         Applied offline in preprocessing_pipeline.py before training.
         "none" passes raw (filtered) signals to the model.
