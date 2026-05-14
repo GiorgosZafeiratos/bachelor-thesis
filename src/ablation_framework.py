@@ -1,4 +1,5 @@
 """
+
 This module provides:
   1. NormalizationConfig        — controls preprocessing vs model-level norm
   2. AblationConfig             — feature flags for every architectural component
@@ -28,6 +29,7 @@ A6 → isolates SE channel attention contribution.
 A7 → isolates gated fusion vs simple concatenation.
 A8 → proves multi-scale CNN outperforms single-scale.
 A9 → full system (best expected result).
+
 """
 
 from __future__ import annotations
