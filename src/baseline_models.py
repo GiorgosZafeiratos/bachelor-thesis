@@ -1,7 +1,5 @@
 """
 
-Baseline Models — CNN-only & LSTM-only
-
 This module provides:
   1. BioDataset       — PyTorch Dataset wrapper around HDF5 pipeline output
   2. CNN1DBaseline    — Convolutional baseline (spatial / morphological)
