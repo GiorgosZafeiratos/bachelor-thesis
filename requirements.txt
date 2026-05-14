@@ -1,29 +1,49 @@
-torch>=2.1.0
-torchvision>=0.16.0
-torchaudio>=2.1.0
-numpy>=1.25.0
-scipy>=1.11.0
-pandas>=2.1.0
-scikit-learn>=1.3.0
-matplotlib>=3.8.0
-seaborn>=0.12.3
-pyyaml>=6.0
-tqdm>=4.66.0
-tensorboard>=2.15.0
-tensorboardX>=2.7
-jupyter>=1.0.0
-notebook>=7.0.0
-pillow>=10.0.0
-opencv-python>=4.9.0
-mne>=1.4.0
-wfdb>=4.0.0
-einops>=0.9.0
-pytorch-lightning>=2.3.0
-wandb>=0.15.0
-shap>=0.42.0
-captum>=0.7.0
-opencv-contrib-python>=4.9.0
-scikit-image>=1.22.0
-pyvista>=0.40.0
-plotly>=6.1.0
-torchmetrics>=0.11.4
+# requirements
+
+# Thesis: Multimodal Biomedical Signal Classification Using a Hybrid
+#         CNN-LSTM Architecture with Adaptive Normalization and XAI
+
+# Install: pip install -r requirements.txt
+# Python:  3.9 – 3.11  (3.10 recommended)
+
+# CUDA:    Optional. CPU-only training works but is slow for EEG (64-ch).
+#          For GPU:  pip install torch --index-url https://download.pytorch.org/whl/cu118
+
+# Scientific stack
+numpy>=1.24,<2.0
+scipy>=1.11
+pandas>=2.0
+scikit-learn>=1.3
+
+# Deep learning
+torch>=2.1 # torchvision not needed; torchaudio optional
+# For GPU builds, replace the line above with the appropriate wheel URL from
+# https://pytorch.org/get-started/locally/
+
+# Biomedical signal loading
+wfdb>=4.1      # MIT-BIH & PhysioNet waveform loading
+mne>=1.6       # EEG & EDF loading and epoching
+neurokit2>=0.2 # ECG R-peak detection (Pan-Tompkins)
+# falls back to scipy if unavailable
+
+# Data storage
+h5py>=3.9 # HDF5 read/write for processed datasets
+
+# Visualisation
+matplotlib>=3.7
+seaborn>=0.13
+
+# Progress bars
+tqdm>=4.66
+
+# Statistical tests
+# scipy.stats (Wilcoxon, Cohen's d) is included in scipy above
+
+# Optional: faster resampling
+# resampy>=0.4 # polyphase resampling; scipy.signal.resample_poly
+# used by default, resampy is faster for large arrays
+
+# Development & reproducibility
+# pytest>=7.4 # uncomment to run unit tests
+# black>=23.0 # code formatter
+# isort>=5.12 # import sorter
