@@ -1,4 +1,4 @@
-# requirements
+# Requirements
 
 # Thesis: Multimodal Biomedical Signal Classification Using a Hybrid
 #         CNN-LSTM Architecture with Adaptive Normalization and XAI
