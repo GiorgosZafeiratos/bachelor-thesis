@@ -1,5 +1,5 @@
 # Multimodal Biomedical Signal Classification
-### Hybrid CNN–LSTM with Adaptive Normalisation and Explainable AI
+### Hybrid CNN–LSTM with Adaptive Normalization and Explainable AI
 
 > Bachelor of Engineering Thesis — Electrical and Electronics Engineering  
 > Datasets: MIT-BIH Arrhythmia (ECG) · PhysioNet EEG Motor Movement · PPG-DaLiA
@@ -16,7 +16,7 @@ The architecture addresses three limitations of prior single-modality work:
 |---|---|
 | CNNs discard temporal context after pooling | CNN output is passed as a feature *sequence* to the LSTM |
 | LSTMs receive raw samples as features | Multi-scale CNN pre-processes signals into morphological features first |
-| Static normalisation ignores inter-subject variability | `LearnableNorm` predicts per-window γ/β from signal statistics via a hyper-network |
+| Static normalization ignores inter-subject variability | `LearnableNorm` predicts per-window γ/β from signal statistics via a hyper-network |
 
 A full **explainability module** (Grad-CAM, Integrated Gradients, LRP ε-rule) produces attribution maps over the time axis, and a **deployment module** measures latency, FLOPs, and quantisation impact.
 
@@ -99,7 +99,7 @@ Input (B, C, T)
 x_norm = (x − μ) / σ
 output  = γ · x_norm + β
 ```
-This makes normalisation *input-conditioned* rather than globally fixed, adapting to inter-subject amplitude variation and sensor drift without requiring calibration data.
+This makes normalization *input-conditioned* rather than globally fixed, adapting to inter-subject amplitude variation and sensor drift without requiring calibration data.
 
 ---
 
@@ -271,7 +271,7 @@ Both strategies are implemented, and the thesis explicitly states that sample-le
 
 ## Licence
 
-This code is released under the MIT licence, for academic use only. The three datasets are subject to their own licences:
+This code is released under the MIT licence. The three datasets are subject to their own licences:
 - MIT-BIH: [PhysioNet Credentialed Health Data License 1.5.0](https://physionet.org/content/mitdb/1.0.0/)
 - EEG Motor Movement: [PhysioNet Credentialed Health Data License 1.5.0](https://physionet.org/content/eegmmidb/1.0.0/)
 - PPG-DaLiA: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/495/ppg+dalia)
