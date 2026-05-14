@@ -1,32 +1,30 @@
-training:
-  seed: 42
-  epochs: 120
-  batch_size: 64
-  optimizer:
-    type: AdamW
-    lr: 1e-3
-    weight_decay: 1e-4
-  scheduler:
-    type: CosineAnnealingLR
-    T_max: 50
-  loss_function: CrossEntropyLoss
-  early_stopping:
-    patience: 15
-    delta: 1e-4
-  device: cuda
+# Thesis pipeline configuration
+# Usage:  python main.py --config config.yaml
+# Any key here overrides the corresponding argparse default.
+# Keys map 1-to-1 to long CLI flag names with hyphens replaced by underscores.
 
-logging:
-  log_dir: logs/
-  tensorboard: true
-  wandb: true
-  project_name: "bachelor_thesis"
+raw_data_dir:    "data/raw"
+processed_dir:   "data/processed"
+output_dir:      "outputs"
 
-checkpoint:
-  save_dir: checkpoints/
-  save_best_only: true
-  monitor: val_loss
+modalities:      ["ecg", "eeg", "ppg"]
 
-misc:
-  seed_everything: true
-  deterministic: true
-  mixed_precision: true
+norm_strategy:   "proposed" # "proposed" | "control"
+
+epochs:          100
+batch_size:      64
+lr:              0.0005
+patience:        20
+seed:            42
+num_workers:     4
+device:          null
+# null → auto-detect (cuda if available, else cpu)
+
+force_preprocess: false
+no_ablations:    false
+no_xai:          false
+n_xai_samples:   32
+ablation_runs:   3
+stat_seeds:      3
+run_deployment:  false
+dry_run:         false
