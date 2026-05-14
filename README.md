@@ -1,7 +1,7 @@
 # Multimodal Biomedical Signal Classification
 ### Hybrid CNN–LSTM with Adaptive Normalisation and Explainable AI
 
-> Bachelor's thesis — Computer Science / Biomedical Engineering  
+> Bachelor of Engineering Thesis — Electrical and Electronics Engineering  
 > Datasets: MIT-BIH Arrhythmia (ECG) · PhysioNet EEG Motor Movement · PPG-DaLiA
 
 ---
