@@ -900,7 +900,7 @@ def run_baselines(cfg: TrainingConfig = CFG) -> None:
     log.info("\nAll baselines complete. Outputs → %s", cfg.output_dir)
 
 
-# 
+
 # USAGE
 # 
 #
@@ -920,8 +920,6 @@ def run_baselines(cfg: TrainingConfig = CFG) -> None:
 # Load a checkpoint:
 #   ckpt = torch.load("outputs/baselines/ecg/cnn/best_cnn.pt")
 #   model.load_state_dict(ckpt["model_state"])
-#
-# =============================================================================
 
 if __name__ == "__main__":
     run_baselines(CFG)
