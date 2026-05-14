@@ -1,0 +1,30 @@
+# Thesis pipeline configuration
+# Usage:  python main.py --config config.yaml
+# Any key here overrides the corresponding argparse default.
+# Keys map 1-to-1 to long CLI flag names with hyphens replaced by underscores.
+
+raw_data_dir:    "data/raw"
+processed_dir:   "data/processed"
+output_dir:      "outputs"
+
+modalities:      ["ecg", "eeg", "ppg"]
+
+norm_strategy:   "proposed" # "proposed" | "control"
+
+epochs:          100
+batch_size:      64
+lr:              0.0005
+patience:        20
+seed:            42
+num_workers:     4
+device:          null
+# null → auto-detect (cuda if available, else cpu)
+
+force_preprocess: false
+no_ablations:    false
+no_xai:          false
+n_xai_samples:   32
+ablation_runs:   3
+stat_seeds:      3
+run_deployment:  false
+dry_run:         false
