@@ -256,7 +256,7 @@ Both strategies are implemented, and the thesis explicitly states that sample-le
 ## Citation
 
 ```bibtex
-@thesis{author2025multimodal,
+@thesis{zafeiratos2026multimodal,
   title   = {Multimodal Biomedical Signal Classification Using a Hybrid
              CNN--LSTM Architecture with Adaptive Normalization and
              Explainable AI},
