@@ -270,6 +270,6 @@ Both strategies are implemented, and the thesis explicitly states that sample-le
 ## Licence
 
 This code is released under the MIT licence. The three datasets are subject to their own licences:
-- MIT-BIH: [PhysioNet Credentialed Health Data License 1.5.0](https://physionet.org/content/mitdb/1.0.0/)
+- MIT-BIH: [Open Data Commons Attribution License (ODC-By) v1.0](https://physionet.org/content/mitdb/1.0.0/)
 - EEG Motor Movement: [PhysioNet Credentialed Health Data License 1.5.0](https://physionet.org/content/eegmmidb/1.0.0/)
 - PPG-DaLiA: [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/495/ppg+dalia)
