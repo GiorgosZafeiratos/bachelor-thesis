@@ -18,10 +18,10 @@ def _fail(msg: str):
     sys.exit(1)
 
 
-# Verification 1 — _apply_normalization "none" is a true no-op
+# Verification 1 — _apply_normalisation "none" is a true no-op
 def verify_normalization_none():
     """
-    Calling _apply_normalization with norm_mode="none" on an array whose
+    Calling _apply_normalisation with norm_mode="none" on an array whose
     mean is 5.0 must return an array whose mean is still 5.0 within 1e-6.
     """
     import sys, os
@@ -37,7 +37,10 @@ def verify_normalization_none():
     rng = np.random.default_rng(0)
     X   = (rng.standard_normal((10, 2, 250)) + 5.0).astype(np.float64)
 
-    out = pipeline._apply_normalization(X)
+    # FIX: was _apply_normalization (American spelling) — the actual method is
+    # _apply_normalisation (British spelling), consistent with the rest of the
+    # codebase. The previous spelling caused AttributeError at runtime.
+    out = pipeline._apply_normalisation(X)
 
     assert out.dtype == np.float32, f"dtype should be float32, got {out.dtype}"
     mean_in  = float(X.mean())
@@ -113,9 +116,14 @@ def verify_config_yaml():
 
     from main import load_yaml_config
 
-    yaml_path = os.path.join(os.path.dirname(__file__), "config.yaml")
+    # FIX: was os.path.join(os.path.dirname(__file__), "config.yaml") which
+    # resolves to tests/config.yaml — a path that does not exist. config.yaml
+    # lives at the repository root, one directory above tests/.
+    yaml_path = os.path.normpath(
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "config.yaml")
+    )
     if not os.path.exists(yaml_path):
-        _fail("config.yaml not found alongside verify_patches.py")
+        _fail(f"config.yaml not found at expected path: {yaml_path}")
 
     cfg = load_yaml_config(yaml_path)
 
@@ -143,3 +151,4 @@ if __name__ == "__main__":
     verify_late_fusion_attention()
     verify_config_yaml()
     print("\nAll verifications passed.")
+    
