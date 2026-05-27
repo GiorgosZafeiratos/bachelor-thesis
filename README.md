@@ -18,7 +18,7 @@ The architecture addresses three limitations of prior single-modality work:
 | LSTMs receive raw samples as features | Multi-scale CNN pre-processes signals into morphological features first |
 | Static normalization ignores inter-subject variability | `LearnableNorm` predicts per-window γ/β from signal statistics via a hyper-network |
 
-A full **explainability module** (Grad-CAM, Integrated Gradients, LRP ε-rule) produces attribution maps over the time axis, and a **deployment module** measures latency, FLOPs, and quantisation impact.
+A full **explainability module** (Grad-CAM, Integrated Gradients, LRP ε-rule) produces attribution maps over the time axis, and a **deployment module** measures latency, FLOPs, and quantization impact.
 
 ---
 
