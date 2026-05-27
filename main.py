@@ -65,39 +65,12 @@ log = logging.getLogger(__name__)
 # Argument parser
 
 def load_yaml_config(path: str) -> dict:
-    """Load config.yaml and return a flat dict of overrides (no new dependencies)."""
-    import re
-    overrides = {}
+    """Load config.yaml and return a flat dict of overrides."""
+    import yaml  # PyYAML — listed in requirements.txt
     with open(path) as f:
-        for line in f:
-            line = line.split("#")[0].strip()
-            if ":" not in line:
-                continue
-            key, _, val = line.partition(":")
-            key = key.strip()
-            val = val.strip()
-            if not key or not val:
-                continue
-            # Parse lists like ["ecg", "eeg", "ppg"]
-            if val.startswith("["):
-                val = [v.strip().strip('"').strip("'")
-                       for v in val.strip("[]").split(",") if v.strip()]
-            elif val.lower() == "null":
-                val = None
-            elif val.lower() == "true":
-                val = True
-            elif val.lower() == "false":
-                val = False
-            else:
-                try:
-                    val = int(val)
-                except ValueError:
-                    try:
-                        val = float(val)
-                    except ValueError:
-                        val = val.strip('"').strip("'")
-            overrides[key] = val
-    return overrides
+        data = yaml.safe_load(f)
+    # yaml.safe_load returns None for an empty file
+    return data if isinstance(data, dict) else {}
 
 
 def parse_args() -> argparse.Namespace:
