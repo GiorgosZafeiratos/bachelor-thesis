@@ -172,7 +172,6 @@ jupyter notebook notebooks/thesis_pipeline.ipynb
 | A6 | z-score | none | ✓ | ✓ | ✗ | ✓ | No SE attention |
 | A7 | z-score | none | ✓ | ✓ | ✓ | ✗ | No gated fusion |
 | A8 | z-score | none | ✓ | single | ✓ | ✓ | Single-scale CNN |
-| A9 | none | learnable | ✓ | ✓ | ✓ | ✓ | Full proposed (= A1) |
 
 ---
 
