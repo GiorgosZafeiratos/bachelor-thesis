@@ -256,14 +256,13 @@ Both strategies are implemented, and the thesis explicitly states that sample-le
 ## Citation
 
 ```bibtex
-@thesis{zafeiratos2026multimodal,
+@misc{zafeiratos2026multimodal,
   title   = {Multimodal Biomedical Signal Classification Using a Hybrid
              CNN--LSTM Architecture with Adaptive Normalization and
              Explainable AI},
-  author  = {Author: Giorgos Zafeiratos},
-  year    = {2025-2026},
-  school  = {University of East London},
-  type    = {Bachelor's Thesis},
+  author  = {Giorgos Zafeiratos},
+  year    = {2026},
+  note    = {Bachelor's Thesis, University of East London}
 }
 ```
 
