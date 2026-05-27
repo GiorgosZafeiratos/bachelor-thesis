@@ -173,16 +173,11 @@ def build_config(args: argparse.Namespace):
     # Apply YAML overrides: YAML sets base values, explicit CLI flags win
     if args.config is not None:
         overrides = load_yaml_config(args.config)
+            explicit_cli_keys = {a.lstrip('-').replace('-', '_')
+                                for a in sys.argv[1:] if a.startswitch('--')}
         for key, val in overrides.items():
-            # Only apply if the user did not explicitly pass the flag on the CLI
-            # (argparse stores defaults; we cannot distinguish, so YAML acts as defaults)
-            if not hasattr(args, key):
-                setattr(args, key, val)
-            elif getattr(args, key) == args.__class__.__new__(args.__class__):
-                setattr(args, key, val)
-            else:
-                # Overwrite only if the current value matches the argparse default
-                setattr(args, key, val)
+                if key not in explicit_cli_keys:
+                        setattr(args, key, val)
 
     if args.device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
