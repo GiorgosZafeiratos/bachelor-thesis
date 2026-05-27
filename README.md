@@ -224,9 +224,9 @@ outputs/
 
 ## Multimodal framing
 
-The three datasets have incompatible label spaces and cannot be aligned at the sample level. The thesis addresses multimodality in two valid ways:
+The three datasets have incompatible label spaces and cannot be aligned at the sample level. The thesis addresses multimodality in two ways:
 
-1. **Architectural generalisation** — one unified `HybridCNNLSTM` trained and evaluated separately on ECG, EEG, and PPG, demonstrating that a single architecture generalises across physiologically distinct signal types.
+1. **Architectural generalization** — one unified `HybridCNNLSTM` trained and evaluated separately on ECG, EEG, and PPG, demonstrating that a single architecture generalizes across physiologically distinct signal types.
 
 2. **Late-fusion ensemble** — per-modality model outputs are combined via a learned weighted average after remapping labels to a shared five-class physiological-state taxonomy (REST / MILD_STRESS / HIGH_STRESS / PATHOLOGICAL / TRANSITION) defined in `PhysiologicalStateMapper`.
 
