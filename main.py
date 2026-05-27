@@ -140,17 +140,24 @@ def parse_args() -> argparse.Namespace:
 # Config builder
 
 def build_config(args: argparse.Namespace):
-    """Convert CLI args to a UnifiedRunConfig, with YAML overrides applied first."""
+    """Convert CLI args to a UnifiedRunConfig, with YAML overrides applied first.
+
+    Priority (highest → lowest): explicit CLI flags > YAML values > argparse defaults.
+    """
     from xai_and_pipeline import UnifiedRunConfig
 
-    # Apply YAML overrides: YAML sets base values, explicit CLI flags win
+    # Apply YAML overrides: YAML sets base values, explicit CLI flags win.
     if args.config is not None:
         overrides = load_yaml_config(args.config)
-            explicit_cli_keys = {a.lstrip('-').replace('-', '_')
-                                for a in sys.argv[1:] if a.startswitch('--')}
+        # Collect every key that was explicitly passed on the command line so
+        # those values are not overwritten by the YAML file.
+        # FIX: was incorrectly indented (caused IndentationError at parse time)
+        # FIX: a.startswitch('--') → a.startswith('--')  (startswitch does not exist)
+        explicit_cli_keys = {a.lstrip('-').replace('-', '_')
+                             for a in sys.argv[1:] if a.startswith('--')}
         for key, val in overrides.items():
-                if key not in explicit_cli_keys:
-                        setattr(args, key, val)
+            if key not in explicit_cli_keys:
+                setattr(args, key, val)
 
     if args.device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -332,3 +339,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+        
