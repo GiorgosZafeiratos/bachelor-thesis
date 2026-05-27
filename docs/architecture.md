@@ -16,7 +16,7 @@
 
 ## LearnableNorm
 
-Addresses the thesis gap: static normalisation ignores inter-subject variability.
+Addresses the thesis gap: static normalization ignores inter-subject variability.
 
 ```
 Input x: (B, C, T)
@@ -31,7 +31,7 @@ summary = concat[μ, σ]   # (B, 2C)
 output = γ ⊙ ((x − μ) / σ) + β
 ```
 
-The MLP is initialised with zero weights and zero biases, so at the start of training `LearnableNorm` is numerically identical to standard z-score normalisation. Gradients then drive it toward input-conditioned adaptive scaling.
+The MLP is initialized with zero weights and zero biases, so at the start of training `LearnableNorm` is numerically identical to standard z-score normalization. Gradients then drive it toward input-conditioned adaptive scaling.
 
 **Ablation**: Compare A0 (preprocessing z-score, no model norm) vs A1 (no preprocessing, `LearnableNorm`). The difference in test macro-F1 is the direct contribution of `LearnableNorm`.
 
@@ -98,7 +98,7 @@ context      = attn_weights · V            # (B, H, 1, d_head)
 output       = concat[heads] projected     # (B, d_model)
 ```
 
-Each head specialises in a different temporal pattern simultaneously. The weights are exported via `model.get_attention_maps()` and visualised in the XAI module.
+Each head specialises in a different temporal pattern simultaneously. The weights are exported via `model.get_attention_maps()` and visualized in the XAI module.
 
 ---
 
